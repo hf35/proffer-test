@@ -1,0 +1,18 @@
+{
+  "HomePage": {
+    "title": "Welcome to test site",
+    "p1": "This project was created as a test assignment for Proffer.ai. This is the main page. Just a very simple page",
+    "p2": "Two blocks are required here, so here are two blocks."
+  },
+  "AboutPage": {
+    "title": "About Page",
+    "p1": "And this is the About page—here's a little bit about myself",
+    "p2": "My name is Maxim, and I love making pizza"
+  },
+  "Header": {
+    "root": "Main",
+    "about": "About",
+    "logout": "Logout",
+    "login": "Log In"
+  }
+}
