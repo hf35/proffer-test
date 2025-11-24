@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useRouter } from "@/i18n/navigation";
+import { useLocale } from "next-intl";
 
 interface LoginFormValues {
   email: string;
@@ -15,6 +16,7 @@ interface LoginFormValues {
 }
 
 export default function LoginPage() {
+  const locale = useLocale()
   const { register, handleSubmit } = useForm<LoginFormValues>();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -27,6 +29,7 @@ export default function LoginPage() {
       redirect: true,
       email: data.email,
       password: data.password,
+      callbackUrl: `/${locale}`
     });
 
     if (res?.ok) router.push("/about");
@@ -59,7 +62,9 @@ export default function LoginPage() {
           <Button
             variant="outline"
             className="w-full flex items-center justify-center gap-2"
-            onClick={() => signIn("google")}
+            onClick={() => signIn("google", {
+              callbackUrl: `/${locale}`
+            })}
           >
             Войти с Google
           </Button>

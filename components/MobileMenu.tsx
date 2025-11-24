@@ -16,7 +16,7 @@ export default function MobileMenu({ email }: Props) {
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
-                <Button variant="outline">Menu</Button>
+                <Button variant="outline">{t("menu")}</Button>
             </DropdownMenuTrigger>
 
             <DropdownMenuContent align="end">

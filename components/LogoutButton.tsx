@@ -2,16 +2,20 @@
 
 import { Button } from "./ui/button";
 import { signOut } from "next-auth/react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { DropdownMenuItem } from "./ui/dropdown-menu";
+import { useCallback } from "react";
+
 
 export function LogoutButton() {
+    const locale = useLocale()
+
     const t = useTranslations("Header");
 
-    const handleLogout = async () => {
-        await signOut({ callbackUrl: "/" });
-    };
+    const handleLogout = useCallback(async () => {
+        await signOut({ callbackUrl: `/${locale}` });
+    }, [locale]);
 
     return (
         <Button variant="outline" onClick={handleLogout}>
@@ -21,11 +25,12 @@ export function LogoutButton() {
 }
 
 export function LogoutMenuItem() {
+    const locale = useLocale()
     const t = useTranslations("Header");
 
-    const handleLogout = async () => {
-        await signOut({ callbackUrl: "/" });
-    };
+    const handleLogout = useCallback(async () => {
+        await signOut({ callbackUrl: `/${locale}` });
+    }, [locale]);
 
     return (
 

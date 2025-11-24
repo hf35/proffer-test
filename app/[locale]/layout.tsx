@@ -3,11 +3,10 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "../globals.css";
 import Header from "@/components/Header";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
-import { getMessages, setRequestLocale } from "next-intl/server";
+import {  setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
-import { SessionProvider } from "next-auth/react";
-import ClientProviders from "./ClientProviders";
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -40,17 +39,12 @@ export default async function RootLayout({
 
   return (
     <html lang={locale}>
-
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <NextIntlClientProvider>
-          <ClientProviders >
             <Header />
             {children}
-          </ClientProviders>
         </NextIntlClientProvider>
-
       </body>
-
     </html>
   );
 }

@@ -13,6 +13,7 @@
     "root": "Main",
     "about": "About",
     "logout": "Logout",
-    "login": "Log In"
+    "login": "Log In",
+    "menu": "Menu"
   }
 }
